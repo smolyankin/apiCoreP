@@ -1,0 +1,1022 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>apiCoreP</name>
+    </assembly>
+    <members>
+        <member name="T:apiCoreP.Attributes.CheckAccessAttribute">
+            <summary>
+            check user permission to action
+            </summary>
+        </member>
+        <member name="M:apiCoreP.Attributes.CheckAccessAttribute.#ctor(apiCoreP.Enums.UserRoleType[])">
+            <summary>
+            check user permission to action
+            </summary>
+            <param name="userRoleTypes">user role types array</param>
+        </member>
+        <member name="M:apiCoreP.Attributes.CheckAccessAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            
+            </summary>
+            <param name="filterContext"></param>
+        </member>
+        <member name="T:apiCoreP.AuthOptions">
+            <summary>
+            auth options
+            </summary>
+        </member>
+        <member name="F:apiCoreP.AuthOptions.ISSUER">
+            <summary>
+            token issuer
+            </summary>
+        </member>
+        <member name="F:apiCoreP.AuthOptions.AUDIENCE">
+            <summary>
+            token audience
+            </summary>
+        </member>
+        <member name="F:apiCoreP.AuthOptions.LIFETIME">
+            <summary>
+            token life time
+            </summary>
+        </member>
+        <member name="M:apiCoreP.AuthOptions.GetSymmetricSecurityKey">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:apiCoreP.Controllers.AuthController">
+            <summary>
+            auth controller
+            </summary>
+        </member>
+        <member name="M:apiCoreP.Controllers.AuthController.#ctor(apiCoreP.Services.IAuthService)">
+            <summary>
+            
+            </summary>
+            <param name="authService"></param>
+        </member>
+        <member name="M:apiCoreP.Controllers.AuthController.Token(apiCoreP.Requests.AuthRequest)">
+            <summary>
+            make token for user
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:apiCoreP.Controllers.SubscriberController">
+            <summary>
+            subscriber controller
+            </summary>
+        </member>
+        <member name="M:apiCoreP.Controllers.SubscriberController.#ctor(apiCoreP.Services.ISubscriberService)">
+            <summary>
+            
+            </summary>
+            <param name="subscriberService"></param>
+        </member>
+        <member name="M:apiCoreP.Controllers.SubscriberController.Subscribers(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            get subscribers with pagination
+            </summary>
+            <param name="skip"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Controllers.SubscriberController.GetById(System.Int32)">
+            <summary>
+            get subscriber by id for edit
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Controllers.SubscriberController.Create(apiCoreP.Requests.CreateSubscriberRequest)">
+            <summary>
+            create subscriber
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Controllers.SubscriberController.Edit(apiCoreP.Requests.EditSubscriberRequest)">
+            <summary>
+            update subscriber
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Controllers.SubscriberController.Delete(System.Int32)">
+            <summary>
+            delete subscriber
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Controllers.SubscriberController.SubscribersToPrint">
+            <summary>
+            get subscribers for printing
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:apiCoreP.Controllers.UserController">
+            <summary>
+            user controller
+            </summary>
+        </member>
+        <member name="M:apiCoreP.Controllers.UserController.#ctor(apiCoreP.Services.IUserService)">
+            <summary>
+            
+            </summary>
+            <param name="usersService"></param>
+        </member>
+        <member name="M:apiCoreP.Controllers.UserController.Me">
+            <summary>
+            get current user info
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Controllers.UserController.GetById(System.Int32)">
+            <summary>
+            get by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Controllers.UserController.Register(apiCoreP.Requests.CreateUserRequest)">
+            <summary>
+            user registration
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Controllers.UserController.UsersWithoutRole">
+            <summary>
+            get users without role
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:apiCoreP.Controllers.UserRoleController">
+            <summary>
+            user role controller
+            </summary>
+        </member>
+        <member name="M:apiCoreP.Controllers.UserRoleController.#ctor(apiCoreP.Services.IUserRoleService)">
+            <summary>
+            
+            </summary>
+            <param name="userRoleService"></param>
+        </member>
+        <member name="M:apiCoreP.Controllers.UserRoleController.UserRoles(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            get user roles with pagination
+            </summary>
+            <param name="skip"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Controllers.UserRoleController.GetDetailsById(System.Int32)">
+            <summary>
+            get user role details by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Controllers.UserRoleController.Create(apiCoreP.Requests.CreateUserRoleRequest)">
+            <summary>
+            create user role
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Controllers.UserRoleController.Edit(apiCoreP.Requests.EditUserRoleRequest)">
+            <summary>
+            update user role
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:apiCoreP.Enums.UserRoleType">
+            <summary>
+            user role type
+            </summary>
+        </member>
+        <member name="F:apiCoreP.Enums.UserRoleType.Add">
+            <summary>
+            add
+            </summary>
+        </member>
+        <member name="F:apiCoreP.Enums.UserRoleType.Edit">
+            <summary>
+            edit
+            </summary>
+        </member>
+        <member name="F:apiCoreP.Enums.UserRoleType.Delete">
+            <summary>
+            delete
+            </summary>
+        </member>
+        <member name="F:apiCoreP.Enums.UserRoleType.Read">
+            <summary>
+            read
+            </summary>
+        </member>
+        <member name="F:apiCoreP.Enums.UserRoleType.Print">
+            <summary>
+            print
+            </summary>
+        </member>
+        <member name="T:apiCoreP.Enums.UserType">
+            <summary>
+            user type
+            </summary>
+        </member>
+        <member name="F:apiCoreP.Enums.UserType.Default">
+            <summary>
+            default user
+            </summary>
+        </member>
+        <member name="F:apiCoreP.Enums.UserType.Admin">
+            <summary>
+            system administrator
+            </summary>
+        </member>
+        <member name="T:apiCoreP.Extensions.BaseClassExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:apiCoreP.Extensions.BaseClassExtensions.ToCopy``2(``0,``1)">
+            <summary>
+            copy same name values from current object (from left to right)
+            </summary>
+            <typeparam name="TDestination">destination class</typeparam>
+            <typeparam name="TBase"></typeparam>
+            <param name="self"></param>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Extensions.BaseClassExtensions.Transform``1(System.Object)">
+            <summary>
+            one class to another (copy values)
+            </summary>
+            <typeparam name="TDestination"></typeparam>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:apiCoreP.Extensions.IntExtensions">
+            <summary>
+            extentions for int
+            </summary>
+        </member>
+        <member name="M:apiCoreP.Extensions.IntExtensions.LimitCount(System.Nullable{System.Int32}@)">
+            <summary>
+            max 100 elements
+            </summary>
+            <param name="count"></param>
+        </member>
+        <member name="T:apiCoreP.Model.Subscriber">
+            <summary>
+            subscriber
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Model.Subscriber.Id">
+            <summary>
+            id
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Model.Subscriber.Inn">
+            <summary>
+            inn
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Model.Subscriber.ShortTitle">
+            <summary>
+            short subscriber title
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Model.Subscriber.FullTitle">
+            <summary>
+            full subscriber title
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Model.Subscriber.Address">
+            <summary>
+            subscriber address
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Model.Subscriber.Phones">
+            <summary>
+            subscriber phones
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Model.Subscriber.OwnerName">
+            <summary>
+            owner full name
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Model.Subscriber.Representative">
+            <summary>
+            subscriber representative
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Model.Subscriber.RepresentativePhones">
+            <summary>
+            representative phones
+            </summary>
+        </member>
+        <member name="T:apiCoreP.Model.User">
+            <summary>
+            user
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Model.User.Id">
+            <summary>
+            id
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Model.User.Name">
+            <summary>
+            name
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Model.User.Email">
+            <summary>
+            email (login)
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Model.User.Password">
+            <summary>
+            password (hash)
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Model.User.UserType">
+            <summary>
+            user role
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Model.User.UserRoleId">
+            <summary>
+            id user role
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Model.User.UserRole">
+            <summary>
+            user role entity
+            </summary>
+        </member>
+        <member name="T:apiCoreP.Model.UserRole">
+            <summary>
+            user role
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Model.UserRole.Id">
+            <summary>
+            id
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Model.UserRole.Title">
+            <summary>
+            role name
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Model.UserRole.UserRoleTypes">
+            <summary>
+            role types
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Model.UserRole.Users">
+            <summary>
+            users with this role
+            </summary>
+        </member>
+        <member name="T:apiCoreP.Requests.AuthRequest">
+            <summary>
+            login request
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Requests.AuthRequest.Email">
+            <summary>
+            login
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Requests.AuthRequest.Password">
+            <summary>
+            password (hash)
+            </summary>
+        </member>
+        <member name="T:apiCoreP.Requests.CreateSubscriberRequest">
+            <summary>
+            new subscriber
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Requests.CreateSubscriberRequest.Inn">
+            <summary>
+            inn
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Requests.CreateSubscriberRequest.ShortTitle">
+            <summary>
+            short subscriber title
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Requests.CreateSubscriberRequest.FullTitle">
+            <summary>
+            full subscriber title
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Requests.CreateSubscriberRequest.Address">
+            <summary>
+            subscriber address
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Requests.CreateSubscriberRequest.Phones">
+            <summary>
+            subscriber phones
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Requests.CreateSubscriberRequest.OwnerName">
+            <summary>
+            owner full name
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Requests.CreateSubscriberRequest.Representative">
+            <summary>
+            subscriber representative
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Requests.CreateSubscriberRequest.RepresentativePhones">
+            <summary>
+            representative phones
+            </summary>
+        </member>
+        <member name="T:apiCoreP.Requests.CreateUserRequest">
+            <summary>
+            new user (register)
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Requests.CreateUserRequest.Name">
+            <summary>
+            name
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Requests.CreateUserRequest.Email">
+            <summary>
+            email (login)
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Requests.CreateUserRequest.Password">
+            <summary>
+            password (hash)
+            </summary>
+        </member>
+        <member name="T:apiCoreP.Requests.CreateUserRoleRequest">
+            <summary>
+            new user role
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Requests.CreateUserRoleRequest.Title">
+            <summary>
+            role name
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Requests.CreateUserRoleRequest.UserRoleTypes">
+            <summary>
+            role types
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Requests.CreateUserRoleRequest.UserIds">
+            <summary>
+            user ids with this role
+            </summary>
+        </member>
+        <member name="T:apiCoreP.Requests.EditSubscriberRequest">
+            <summary>
+            update subscriber request
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Requests.EditSubscriberRequest.Id">
+            <summary>
+            name
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Requests.EditSubscriberRequest.Inn">
+            <summary>
+            inn
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Requests.EditSubscriberRequest.ShortTitle">
+            <summary>
+            short subscriber title
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Requests.EditSubscriberRequest.FullTitle">
+            <summary>
+            full subscriber title
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Requests.EditSubscriberRequest.Address">
+            <summary>
+            subscriber address
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Requests.EditSubscriberRequest.Phones">
+            <summary>
+            subscriber phones
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Requests.EditSubscriberRequest.OwnerName">
+            <summary>
+            owner full name
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Requests.EditSubscriberRequest.Representative">
+            <summary>
+            subscriber representative
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Requests.EditSubscriberRequest.RepresentativePhones">
+            <summary>
+            representative phones
+            </summary>
+        </member>
+        <member name="T:apiCoreP.Requests.EditUserRoleRequest">
+            <summary>
+            update user role request
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Requests.EditUserRoleRequest.Id">
+            <summary>
+            name
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Requests.EditUserRoleRequest.Title">
+            <summary>
+            role name
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Requests.EditUserRoleRequest.UserRoleTypes">
+            <summary>
+            role types
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Requests.EditUserRoleRequest.UserIds">
+            <summary>
+            new users for role
+            </summary>
+        </member>
+        <member name="T:apiCoreP.Responses.BaseListResponse">
+            <summary>
+            base list
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Responses.BaseListResponse.Count">
+            <summary>
+            total count
+            </summary>
+        </member>
+        <member name="T:apiCoreP.Responses.SubscribersResponse">
+            <summary>
+            subscribers response
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Responses.SubscribersResponse.Items">
+            <summary>
+            items
+            </summary>
+        </member>
+        <member name="T:apiCoreP.Responses.UserResponse">
+            <summary>
+            user short response
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Responses.UserResponse.Id">
+            <summary>
+            id
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Responses.UserResponse.Name">
+            <summary>
+            name
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Responses.UserResponse.Email">
+            <summary>
+            email (login)
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Responses.UserResponse.UserType">
+            <summary>
+            user role
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Responses.UserResponse.UserRoleTypes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:apiCoreP.Responses.UserRoleResponse">
+            <summary>
+            user role details response
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Responses.UserRoleResponse.AvailableUsers">
+            <summary>
+            users without role
+            </summary>
+        </member>
+        <member name="T:apiCoreP.Responses.UserRolesResponse">
+            <summary>
+            user roles response
+            </summary>
+        </member>
+        <member name="P:apiCoreP.Responses.UserRolesResponse.Items">
+            <summary>
+            items
+            </summary>
+        </member>
+        <member name="T:apiCoreP.Services.AuthService">
+            <summary>
+            auth service
+            </summary>
+        </member>
+        <member name="M:apiCoreP.Services.AuthService.#ctor(apiCoreP.Services.IUserService)">
+            <summary>
+            
+            </summary>
+            <param name="userService"></param>
+        </member>
+        <member name="M:apiCoreP.Services.AuthService.IdentityResponse(System.Security.Claims.ClaimsIdentity)">
+            <summary>
+            token response
+            </summary>
+            <param name="identity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.AuthService.GetIdentity(System.String,System.String)">
+            <summary>
+            user claims
+            </summary>
+            <param name="email"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="T:apiCoreP.Services.IAuthService">
+            <summary>
+            auth interface
+            </summary>
+        </member>
+        <member name="M:apiCoreP.Services.IAuthService.IdentityResponse(System.Security.Claims.ClaimsIdentity)">
+            <summary>
+            token response
+            </summary>
+            <param name="identity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.IAuthService.GetIdentity(System.String,System.String)">
+            <summary>
+            user claims
+            </summary>
+            <param name="email"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="T:apiCoreP.Services.SubscriberService">
+            <summary>
+            subscriber service
+            </summary>
+        </member>
+        <member name="M:apiCoreP.Services.SubscriberService.#ctor(apiCoreP.Data.ApplicationContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:apiCoreP.Services.SubscriberService.GetById(System.Int64)">
+            <summary>
+            get subscriber by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.SubscriberService.GetSubscribers(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            get subscribers by page
+            </summary>
+            <param name="skip"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.SubscriberService.Create(apiCoreP.Requests.CreateSubscriberRequest)">
+            <summary>
+            add subscriber
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.SubscriberService.Edit(apiCoreP.Model.Subscriber,apiCoreP.Requests.EditSubscriberRequest)">
+            <summary>
+            update subscriber
+            </summary>
+            <param name="subscriber">subscriber to update</param>
+            <param name="request">edit subscriber request</param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.SubscriberService.Delete(apiCoreP.Model.Subscriber)">
+            <summary>
+            delete subscriber
+            </summary>
+            <param name="subscriber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.SubscriberService.SubscribersToPrint">
+            <summary>
+            get subscribers for printing
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:apiCoreP.Services.ISubscriberService">
+            <summary>
+            subscriber interface
+            </summary>
+        </member>
+        <member name="M:apiCoreP.Services.ISubscriberService.GetById(System.Int64)">
+            <summary>
+            get subscriber by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.ISubscriberService.GetSubscribers(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            get subscribers by page
+            </summary>
+            <param name="skip"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.ISubscriberService.Create(apiCoreP.Requests.CreateSubscriberRequest)">
+            <summary>
+            add subscriber
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.ISubscriberService.Edit(apiCoreP.Model.Subscriber,apiCoreP.Requests.EditSubscriberRequest)">
+            <summary>
+            update subscriber
+            </summary>
+            <param name="subscriber">subscriber to update</param>
+            <param name="request">edit subscriber request</param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.ISubscriberService.Delete(apiCoreP.Model.Subscriber)">
+            <summary>
+            delete subscriber
+            </summary>
+            <param name="subscriber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.ISubscriberService.SubscribersToPrint">
+            <summary>
+            get subscribers for printing
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:apiCoreP.Services.UserRoleService">
+            <summary>
+            user role service
+            </summary>
+        </member>
+        <member name="M:apiCoreP.Services.UserRoleService.#ctor(apiCoreP.Data.ApplicationContext,apiCoreP.Services.IUserService)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <param name="userService"></param>
+        </member>
+        <member name="M:apiCoreP.Services.UserRoleService.GetById(System.Int64)">
+            <summary>
+            get user role by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.UserRoleService.GetDetailsById(System.Int64)">
+            <summary>
+            get user role details by id
+            </summary>
+            <param name="id">user role id</param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.UserRoleService.Create(apiCoreP.Requests.CreateUserRoleRequest)">
+            <summary>
+            create user role
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.UserRoleService.Edit(apiCoreP.Model.UserRole,apiCoreP.Requests.EditUserRoleRequest)">
+            <summary>
+            update user role
+            </summary>
+            <param name="userRole"></param>
+            <param name="request">user role params</param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.UserRoleService.GetUserRoles(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            get user roles by page
+            </summary>
+            <param name="skip"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="T:apiCoreP.Services.IUserRoleService">
+            <summary>
+            user role interface
+            </summary>
+        </member>
+        <member name="M:apiCoreP.Services.IUserRoleService.GetById(System.Int64)">
+            <summary>
+            get user role by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.IUserRoleService.GetDetailsById(System.Int64)">
+            <summary>
+            get user role details by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.IUserRoleService.Create(apiCoreP.Requests.CreateUserRoleRequest)">
+            <summary>
+            create user role
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.IUserRoleService.Edit(apiCoreP.Model.UserRole,apiCoreP.Requests.EditUserRoleRequest)">
+            <summary>
+            update user role
+            </summary>
+            <param name="userRole"></param>
+            <param name="request">user role params</param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.IUserRoleService.GetUserRoles(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            get user roles by page
+            </summary>
+            <param name="skip"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="T:apiCoreP.Services.UserService">
+            <summary>
+            user service
+            </summary>
+        </member>
+        <member name="M:apiCoreP.Services.UserService.#ctor(apiCoreP.Data.ApplicationContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:apiCoreP.Services.UserService.GetUserByIdentity(System.String,System.String)">
+            <summary>
+            get user by identity
+            </summary>
+            <param name="email"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.UserService.GetUserByEmail(System.String)">
+            <summary>
+            get user by email
+            </summary>
+            <param name="email"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.UserService.GetUserById(System.Int64)">
+            <summary>
+            get user by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.UserService.RegisterUser(apiCoreP.Requests.CreateUserRequest)">
+            <summary>
+            user registration
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.UserService.GetUsersByIds(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            get users by id list
+            </summary>
+            <param name="userIds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.UserService.GetUsersWithoutRole">
+            <summary>
+            get users without role
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.UserService.CheckAccess(System.String,apiCoreP.Enums.UserRoleType[])">
+            <summary>
+            check user current role has permission to role type
+            </summary>
+            <param name="email">user email</param>
+            <param name="types">role types</param>
+            <returns></returns>
+        </member>
+        <member name="T:apiCoreP.Services.IUserService">
+            <summary>
+            user interface
+            </summary>
+        </member>
+        <member name="M:apiCoreP.Services.IUserService.GetUserByIdentity(System.String,System.String)">
+            <summary>
+            get user by identity
+            </summary>
+            <param name="email"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.IUserService.GetUserByEmail(System.String)">
+            <summary>
+            get user by email
+            </summary>
+            <param name="email"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.IUserService.GetUserById(System.Int64)">
+            <summary>
+            get user by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.IUserService.RegisterUser(apiCoreP.Requests.CreateUserRequest)">
+            <summary>
+            user registration
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.IUserService.GetUsersByIds(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            get users by id list
+            </summary>
+            <param name="userIds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.IUserService.GetUsersWithoutRole">
+            <summary>
+            get users without role
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:apiCoreP.Services.IUserService.CheckAccess(System.String,apiCoreP.Enums.UserRoleType[])">
+            <summary>
+            check user current role has permission to role type
+            </summary>
+            <param name="email">user email</param>
+            <param name="types">role types</param>
+            <returns></returns>
+        </member>
+        <member name="T:apiCoreP.Startup">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:apiCoreP.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="P:apiCoreP.Startup.Configuration">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:apiCoreP.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:apiCoreP.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+        </member>
+    </members>
+</doc>
