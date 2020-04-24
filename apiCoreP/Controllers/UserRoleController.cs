@@ -61,9 +61,9 @@ namespace apiCoreP.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(CreateUserRoleRequest request)
         {
-            await _userRoleService.Create(request);
+            var userRole = await _userRoleService.Create(request);
 
-            return NoContent();
+            return Created(HttpContext.Request.Path, userRole);
         }
 
         /// <summary>
@@ -71,16 +71,14 @@ namespace apiCoreP.Controllers
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        [HttpPost("{id}/update")]
+        [HttpPut("{id}")]
         public async Task<IActionResult> Edit(EditUserRoleRequest request)
         {
-            var userRole = await _userRoleService.GetById(request.Id);
+            var userRole = await _userRoleService.Edit(request);
             if (userRole == null)
                 return NotFound();
 
-            await _userRoleService.Edit(userRole, request);
-
-            return NoContent();
+            return Ok();
         }
     }
 }

@@ -72,7 +72,7 @@ namespace apiCoreP.Controllers
             
             await _userService.RegisterUser(request);
 
-            return NoContent();
+            return Ok();
         }
 
         /// <summary>

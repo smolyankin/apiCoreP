@@ -8,6 +8,7 @@ using apiCoreP.Services;
 using apiCoreP.Responses;
 using apiCoreP.Attributes;
 using apiCoreP.Enums;
+using Microsoft.AspNetCore.Http.Extensions;
 
 namespace apiCoreP.Controllers
 {
@@ -68,9 +69,9 @@ namespace apiCoreP.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(CreateSubscriberRequest request)
         {
-            await _subscriberService.Create(request);
+            var subscriber = await _subscriberService.Create(request);
 
-            return NoContent();
+            return Created(HttpContext.Request.Path, subscriber);
         }
 
         /// <summary>
@@ -79,16 +80,14 @@ namespace apiCoreP.Controllers
         /// <param name="request"></param>
         /// <returns></returns>
         [CheckAccess(UserRoleType.Edit)]
-        [HttpPost("{id}/update")]
+        [HttpPut("{id}")]
         public async Task<IActionResult> Edit(EditSubscriberRequest request)
         {
-            var subscriber = await _subscriberService.GetById(request.Id);
+            var subscriber = await _subscriberService.Edit(request);
             if (subscriber == null)
                 return NotFound();
 
-            await _subscriberService.Edit(subscriber, request);
-
-            return NoContent();
+            return Ok();
         }
 
         /// <summary>

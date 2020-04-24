@@ -14,6 +14,7 @@ using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using apiCoreP.Data;
 using apiCoreP.Services;
+using apiCoreP.DI;
 
 namespace apiCoreP
 {
@@ -133,15 +134,7 @@ namespace apiCoreP
                 c.IncludeXmlComments(xmlPath);
             });
 
-            ConfigureDI(services);
-        }
-
-        private static void ConfigureDI(IServiceCollection services)
-        {
-            services.AddTransient<IAuthService, AuthService>();
-            services.AddTransient<IUserService, UserService>();
-            services.AddTransient<IUserRoleService, UserRoleService>();
-            services.AddTransient<ISubscriberService, SubscriberService>();
+            ServicesDI.Configure(services);
         }
 
         /// <summary>

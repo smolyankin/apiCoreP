@@ -64,7 +64,7 @@ namespace apiCoreP.Services
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task Create(CreateUserRoleRequest request)
+        public async Task<UserRole> Create(CreateUserRoleRequest request)
         {
             var userRole = request.Transform<UserRole>();
 
@@ -77,32 +77,30 @@ namespace apiCoreP.Services
             }
 
             await _context.SaveChangesAsync();
+
+            return userRole;
         }
 
         /// <summary>
         /// update user role
         /// </summary>
-        /// <param name="userRole"></param>
-        /// <param name="request">user role params</param>
+        /// <param name="request">user role request</param>
         /// <returns></returns>
-        public async Task Edit(UserRole userRole, EditUserRoleRequest request)
+        public async Task<UserRole> Edit(EditUserRoleRequest request)
         {
-            _context.Entry(userRole).State = EntityState.Modified;
+            var userRole = await GetById(request.Id);
+            if (userRole == null)
+                return null;
 
-            try
-            {
-                request.ToCopy(userRole);
+            request.ToCopy(userRole);
                 
-                var users = await _userService.GetUsersByIds(request.UserIds);
-                userRole.Users.RemoveAll(x => !request.UserIds.Contains(x.Id));
-                userRole.Users.AddRange(users.Where(x => !userRole.Users.Contains(x)));
+            var users = await _userService.GetUsersByIds(request.UserIds);
+            userRole.Users.RemoveAll(x => !request.UserIds.Contains(x.Id));
+            userRole.Users.AddRange(users.Where(x => !userRole.Users.Contains(x)));
 
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                throw;
-            }
+            await _context.SaveChangesAsync();
+
+            return userRole;
         }
 
         /// <summary>
@@ -148,15 +146,14 @@ namespace apiCoreP.Services
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        Task Create(CreateUserRoleRequest request);
+        Task<UserRole> Create(CreateUserRoleRequest request);
 
         /// <summary>
         /// update user role
         /// </summary>
-        /// <param name="userRole"></param>
-        /// <param name="request">user role params</param>
+        /// <param name="request">user role request</param>
         /// <returns></returns>
-        Task Edit(UserRole userRole, EditUserRoleRequest request);
+        Task<UserRole> Edit(EditUserRoleRequest request);
 
         /// <summary>
         /// get user roles by page

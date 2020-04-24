@@ -73,23 +73,19 @@ namespace apiCoreP.Services
         /// <summary>
         /// update subscriber
         /// </summary>
-        /// <param name="subscriber">subscriber to update</param>
         /// <param name="request">edit subscriber request</param>
         /// <returns></returns>
-        public async Task Edit(Subscriber subscriber, EditSubscriberRequest request)
+        public async Task<Subscriber> Edit(EditSubscriberRequest request)
         {
-            _context.Entry(subscriber).State = EntityState.Modified;
+            var subscriber = await GetById(request.Id);
+            if (subscriber == null)
+                return null;
 
-            try
-            {
-                request.ToCopy(subscriber);
+            request.ToCopy(subscriber);
 
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                throw;
-            }
+            await _context.SaveChangesAsync();
+
+            return subscriber;
         }
 
         /// <summary>
@@ -144,10 +140,9 @@ namespace apiCoreP.Services
         /// <summary>
         /// update subscriber
         /// </summary>
-        /// <param name="subscriber">subscriber to update</param>
         /// <param name="request">edit subscriber request</param>
         /// <returns></returns>
-        Task Edit(Subscriber subscriber, EditSubscriberRequest request);
+        Task<Subscriber> Edit(EditSubscriberRequest request);
 
         /// <summary>
         /// delete subscriber

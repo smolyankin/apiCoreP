@@ -195,6 +195,17 @@
             <param name="request"></param>
             <returns></returns>
         </member>
+        <member name="T:apiCoreP.DI.ServicesDI">
+            <summary>
+            di for services
+            </summary>
+        </member>
+        <member name="M:apiCoreP.DI.ServicesDI.Configure(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            load services di
+            </summary>
+            <param name="services"></param>
+        </member>
         <member name="T:apiCoreP.Enums.UserRoleType">
             <summary>
             user role type
@@ -713,11 +724,10 @@
             <param name="request"></param>
             <returns></returns>
         </member>
-        <member name="M:apiCoreP.Services.SubscriberService.Edit(apiCoreP.Model.Subscriber,apiCoreP.Requests.EditSubscriberRequest)">
+        <member name="M:apiCoreP.Services.SubscriberService.Edit(apiCoreP.Requests.EditSubscriberRequest)">
             <summary>
             update subscriber
             </summary>
-            <param name="subscriber">subscriber to update</param>
             <param name="request">edit subscriber request</param>
             <returns></returns>
         </member>
@@ -761,11 +771,10 @@
             <param name="request"></param>
             <returns></returns>
         </member>
-        <member name="M:apiCoreP.Services.ISubscriberService.Edit(apiCoreP.Model.Subscriber,apiCoreP.Requests.EditSubscriberRequest)">
+        <member name="M:apiCoreP.Services.ISubscriberService.Edit(apiCoreP.Requests.EditSubscriberRequest)">
             <summary>
             update subscriber
             </summary>
-            <param name="subscriber">subscriber to update</param>
             <param name="request">edit subscriber request</param>
             <returns></returns>
         </member>
@@ -815,12 +824,11 @@
             <param name="request"></param>
             <returns></returns>
         </member>
-        <member name="M:apiCoreP.Services.UserRoleService.Edit(apiCoreP.Model.UserRole,apiCoreP.Requests.EditUserRoleRequest)">
+        <member name="M:apiCoreP.Services.UserRoleService.Edit(apiCoreP.Requests.EditUserRoleRequest)">
             <summary>
             update user role
             </summary>
-            <param name="userRole"></param>
-            <param name="request">user role params</param>
+            <param name="request">user role request</param>
             <returns></returns>
         </member>
         <member name="M:apiCoreP.Services.UserRoleService.GetUserRoles(System.Nullable{System.Int32},System.Nullable{System.Int32})">
@@ -857,12 +865,11 @@
             <param name="request"></param>
             <returns></returns>
         </member>
-        <member name="M:apiCoreP.Services.IUserRoleService.Edit(apiCoreP.Model.UserRole,apiCoreP.Requests.EditUserRoleRequest)">
+        <member name="M:apiCoreP.Services.IUserRoleService.Edit(apiCoreP.Requests.EditUserRoleRequest)">
             <summary>
             update user role
             </summary>
-            <param name="userRole"></param>
-            <param name="request">user role params</param>
+            <param name="request">user role request</param>
             <returns></returns>
         </member>
         <member name="M:apiCoreP.Services.IUserRoleService.GetUserRoles(System.Nullable{System.Int32},System.Nullable{System.Int32})">
